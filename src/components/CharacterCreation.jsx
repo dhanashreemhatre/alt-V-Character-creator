@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CharacterCreationStart from './utility/CharacterCreationStart';
+import CharacterCreationParents from './utility/CharacterCreationParents';
 
 function CharacterCreation() {
   const [step, setStep] = useState(1);

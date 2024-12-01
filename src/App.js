@@ -1,11 +1,11 @@
 import './App.css';
-import CharacterCreationStart from './components/utility/CharacterCreationStart';
+import CharacterCreation from './components/CharacterCreation';
 
 
 function App() {
   return (
   <>
- <CharacterCreationStart/>
+  <CharacterCreation/>
   </>
   );
 }
