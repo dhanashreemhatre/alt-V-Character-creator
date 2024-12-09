@@ -42,3 +42,45 @@
     border: 1px solid white;
     border-radius: 50%;
 }
+
+/* Container for the eye */
+.eye-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    position: relative;
+  }
+  
+  /* Outer eye (sclera - white part) */
+  .eye {
+    background-color: #ffffff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Iris (colored part) */
+  .iris {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Pupil (black center) */
+  .pupil {
+    background-color: #000;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }

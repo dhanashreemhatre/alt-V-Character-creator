@@ -219,14 +219,20 @@ Vue.component('tab-sex', {
                 <div class="controls">
         <button class="arrowLeft" @click="decrementParameter('eyes', 0, eyeColors.length - 1, 1)">&#8249;</button>
         <span>
-          <div
-            class="color-preview"
-             :style="{ backgroundColor: eyeColors[data.eyes] }"
-          ></div>
-          {{ eyeColors[data.eyes] }}
-        </span>
-        <button class="arrowRight" @click="incrementParameter('eyes', 0, eyeColors.length - 1, 1)">&#8250;</button>
-      </div>
+                <div class="eye-container">
+                    <!-- Eye sclera -->
+                    <div class="eye">
+                    <!-- Iris (colored part) -->
+                    <div class="iris" :style="{ backgroundColor: eyeColors[data.eyes] || '#808080' }">
+                        <!-- Pupil (center black part) -->
+                        <div class="pupil"></div>
+                    </div>
+                    </div>
+                </div>
+                <!-- {{ eyeColors[data.eyes] }}-->
+                </span>
+                <button class="arrowRight" @click="incrementParameter('eyes', 0, eyeColors.length - 1, 1)">&#8250;</button>
+            </div>
             </div>
         </div>
     `
