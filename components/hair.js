@@ -9,7 +9,7 @@ Vue.component('tab-hair', {
             return maleHair.length - 1;
         },
         getColorCount() {
-            return hairColors.length - 1;
+            return 59//hairColors.length - 1;
         },
         getFacialCount() {
             return facialHair.length - 1;
@@ -62,7 +62,7 @@ Vue.component('tab-hair', {
                     <button class="arrowRight" @click="incrementParameter('hair', 0, getHairCount(), 1)">&#8250;</button>
                 </div>
             </div>
-            <div class="option">
+           <div class="option">
                 <div class="labelContainer">
                     <div class="label">
                         Hair Style Color
@@ -73,10 +73,16 @@ Vue.component('tab-hair', {
                 </div>
                 <div class="controls">
                     <button class="arrowLeft" @click="decrementParameter('hairColor1', 0, getColorCount(), 1)">&#8249;</button>
-                    <span> {{ hairColors[data.hairColor1] }}</span>
+                    <span>
+                        <div 
+                            class="color-circle" 
+                            :style="{ backgroundColor: hairColors[data.hairColor1] }"
+                            title="Hair Color"></div>
+                    </span>
                     <button class="arrowRight" @click="incrementParameter('hairColor1', 0, getColorCount(), 1)">&#8250;</button>
                 </div>
             </div>
+
             <div class="option">
                 <div class="labelContainer">
                     <div class="label">
@@ -88,7 +94,12 @@ Vue.component('tab-hair', {
                 </div>
                 <div class="controls">
                     <button class="arrowLeft" @click="decrementParameter('hairColor2', 0, getColorCount(), 1)">&#8249;</button>
-                    <span> {{ hairColors[data.hairColor2] }}</span>
+                    <span>
+                        <div 
+                            class="color-circle" 
+                            :style="{ backgroundColor: hairColors[data.hairColor2] }"
+                            title="Hair Color"></div>
+                    </span>
                     <button class="arrowRight" @click="incrementParameter('hairColor2', 0, getColorCount(), 1)">&#8250;</button>
                 </div>
             </div>
@@ -119,7 +130,10 @@ Vue.component('tab-hair', {
                 </div>
                 <div class="controls">
                     <button class="arrowLeft" @click="decrementParameter('eyebrowsColor1', 0, getColorCount(), 1)">&#8249;</button>
-                    <span> {{ hairColors[data.eyebrowsColor1] }}</span>
+                    <span> <div 
+                            class="color-circle" 
+                            :style="{ backgroundColor: hairColors[data.eyebrowsColor1] }"
+                            title="Hair Color"></div></span>
                     <button class="arrowRight" @click="incrementParameter('eyebrowsColor1', 0, getColorCount(), 1)">&#8250;</button>
                 </div>
             </div>
