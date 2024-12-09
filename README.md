@@ -1,4 +1,5 @@
-![](https://i.imgur.com/CEZRYfS.jpeg)
+![](![image](https://github.com/user-attachments/assets/0120bed3-b093-455d-afc4-42574c51b217)
+)
 
 # Open Source - Character Editor - alt:V
 
