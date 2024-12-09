@@ -11,20 +11,20 @@ Vue.component('tab-sex', {
         setParameter(parameter, value) {
             if (parameter === 'sex') {
                 if (value === 0) {
-                    this.data.faceFather = 33;
-                    this.data.faceMother = 45;
-                    this.data.skinFather = 45;
-                    this.data.skinMother = 45;
+                    this.data.faceFather = 1;
+                    this.data.faceMother = 23;
+                    this.data.skinFather = 1;
+                    this.data.skinMother = 23;
                     this.data.skinMix = 0.5;
                     this.data.faceMix = 0.5;
                     this.data.facialHair = 29;
                     this.data.facialHairColor1 = 0;
                     this.data.eyebrows = 0;
                 } else {
-                    this.data.faceMother = 0;
                     this.data.faceFather = 0;
+                    this.data.faceMother = 25;
                     this.data.skinFather = 0;
-                    this.data.skinMother = 0;
+                    this.data.skinMother = 25;
                     this.data.skinMix = 0.5;
                     this.data.faceMix = 0.5;
                     this.data.facialHair = 29;
@@ -70,7 +70,21 @@ Vue.component('tab-sex', {
             }
 
             this.$root.$emit('updateCharacter');
+        },
+        getImage(sex, id) {
+            const basePath = "assets/character/";
+            const genderPath = sex === 0 ? "female/" : "male/";
+            const namesArray = sex === 0 ? femaleNames : maleNames;
+        
+            if (id >= 0 && id < namesArray.length) {
+                console.log(`ID: ${namesArray[id]}`);
+                return `${basePath}${genderPath}${namesArray[id].toLowerCase()}.jpeg`;
+            } else {
+                console.error(`Invalid ID: ${id}`);
+                return `${basePath}${genderPath}default.jpeg`; // Fallback for invalid IDs
+            }
         }
+        
     },
     watch: {
         'data.faceMix': function(newVal, oldVal) {
@@ -92,17 +106,19 @@ Vue.component('tab-sex', {
                     </div>
                 </div>
                 <div class="split">
-                    <button @click="setParameter('sex', 0)" :class="isActive('sex', 0)" id="sex-selector"><img src="assets/sex/woman-avatar.png"/>Female</button>
-                    <button @click="setParameter('sex', 1)" :class="isActive('sex', 1)" id="sex-selector"><img src="assets/sex/male-user.png"/>Male</button>
+                    <button @click="setParameter('sex', 0)" :class="isActive('sex', 0)" id="sex-selector" class="women"><img src="assets/sex/woman-avatar.png"/>Female</button>
+                    <button @click="setParameter('sex', 1)" :class="isActive('sex', 1)" id="sex-selector" class="men"><img src="assets/sex/male-user.png"/>Male</button>
                 </div>
-                <div class="label" style="margin-top: 6px">
+               <!-- 
+               <div class="label" style="margin-top: 6px">
                     Presets
                 </div>
                 <div class="split-auto">
-                    <button v-for="i in 6" :key="i" @click="setParameter('preset', i)">
+                    <button class="preset-btn" v-for="i in 6" :key="i" @click="setParameter('preset', i)">
                         {{ i }}
                     </button>
                 </div>
+                -->
             </div>
             <div class="option">
                 <div class="labelContainer">
@@ -110,13 +126,14 @@ Vue.component('tab-sex', {
                         Father Face
                     </div>
                     <div class="value">
-                        {{ data.faceFather }} | 45
+                        {{ data.faceFather }} | 22
                     </div>
                 </div>
                 <div class="controls">
-                    <button class="arrowLeft" @click="decrementParameter('faceFather', 0, 45, 1)">&#8249;</button>
-                    <span> {{faceNames[data.faceFather] }}</span>
-                    <button class="arrowRight" @click="incrementParameter('faceFather', 0, 45, 1)">&#8250;</button>
+                    <button class="arrowLeft" @click="decrementParameter('faceFather', 0, 22, 1)">&#8249;</button>
+                
+                    <img :src="getImage(1, data.faceFather)" :alt="maleNames[0][data.faceFather]" height="78" />
+                    <button class="arrowRight" @click="incrementParameter('faceFather', 0, 22, 1)">&#8250;</button>
                 </div>
             </div>
             <div class="option">
@@ -125,13 +142,13 @@ Vue.component('tab-sex', {
                         Father Skin
                     </div>
                     <div class="value">
-                        {{ data.skinFather }} | 45
+                        {{ data.skinFather }} | 22
                     </div>
                 </div>
                 <div class="controls">
-                    <button class="arrowLeft" @click="decrementParameter('skinFather', 0, 45, 1)">&#8249;</button>
-                    <span> {{faceNames[data.skinFather] }}</span>
-                    <button class="arrowRight" @click="incrementParameter('skinFather', 0, 45, 1)">&#8250;</button>
+                    <button class="arrowLeft" @click="decrementParameter('skinFather', 0, 22, 1)">&#8249;</button>
+                    <img :src="getImage(1, data.skinFather)" :alt="faceNames[data.skinFather]" height="78" />
+                    <button class="arrowRight" @click="incrementParameter('skinFather', 0, 22, 1)">&#8250;</button>
                 </div>
             </div>
             <div class="option">
@@ -140,13 +157,13 @@ Vue.component('tab-sex', {
                         Mother Face
                     </div>
                     <div class="value">
-                        {{ data.faceMother }} | 45
+                        {{ data.faceMother }} | 22
                     </div>
                 </div>
                 <div class="controls">
-                    <button class="arrowLeft" @click="decrementParameter('faceMother', 0, 45, 1)">&#8249;</button>
-                    <span> {{faceNames[data.faceMother] }}</span>
-                    <button class="arrowRight" @click="incrementParameter('faceMother', 0, 45, 1)">&#8250;</button>
+                    <button class="arrowLeft" @click="decrementParameter('faceMother', 0, 22, 1)">&#8249;</button>
+                    <img :src="getImage(0, data.faceMother)" :alt="faceNames[data.faceMother]" height="78" />
+                    <button class="arrowRight" @click="incrementParameter('faceMother', 0, 22, 1)">&#8250;</button>
                 </div>
             </div>
             <div class="option">
@@ -155,13 +172,13 @@ Vue.component('tab-sex', {
                         Mother Skin
                     </div>
                     <div class="value">
-                        {{ data.skinMother }} | 45
+                        {{ data.skinMother }} | 22
                     </div>
                 </div>
                 <div class="controls">
-                    <button class="arrowLeft" @click="decrementParameter('skinMother', 0, 45, 1)">&#8249;</button>
-                    <span> {{faceNames[data.skinMother] }}</span>
-                    <button class="arrowRight" @click="incrementParameter('skinMother', 0, 45, 1)">&#8250;</button>
+                    <button class="arrowLeft" @click="decrementParameter('skinMother', 0, 22, 1)">&#8249;</button>
+                   <img :src="getImage(0, data.skinMother)" :alt="faceNames[data.skinMother]" height="78" />
+                    <button class="arrowRight" @click="incrementParameter('skinMother', 0, 22, 1)">&#8250;</button>
                 </div>
             </div>
             <div class="option">

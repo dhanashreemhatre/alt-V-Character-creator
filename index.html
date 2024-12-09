@@ -11,8 +11,8 @@
         <div id="app">
             <div class="editor" v-if="show">
                 <div class="navigation">
-                    <button @click="goBack" :class="isInactiveBack">Back</button>
-                    <button @click="goNext" :class="isInactiveNext">Next</button>
+                    <button @click="goBack" :class="isInactiveBack"><span style="font-size: 24px;">&#x2039;</span></button>
+                    <button @click="goNext" :class="isInactiveNext"><span style="font-size: 24px;">&#x203A;</span></button>
                 </div>
                 <component v-bind:is="getTabComponent" v-bind:data="data"></component>
                 

@@ -1,5 +1,5 @@
 #sex-selector{
-    background-color: #363636;
+    background: #363636;
     padding: 2rem;
     display: flex;
     justify-content: center;
@@ -11,12 +11,27 @@
 #sex-selector:hover{
     background-color: #262626;
 }
-
-#sex-selector.active{
-    background-color: #262626;
-    border: #4b8ed7;
+#sex-selector.women.active{
+    background: linear-gradient(135deg,#9333ea,#db2777);
+    border: 1px solid #d74bad;
+}
+#sex-selector.men.active{
+    background: linear-gradient(135deg,#4f46e5,#2563eb);
+    border: 1px solid #4b8ed7;
 }
 #sex-selector img{
     height: 2rem;
     width: 2rem;
+}
+.preset-btn{
+    border-radius: 50% !important;
+    aspect-ratio: 1;
+}
+.arrowLeft{
+    border-radius: 50% !important;
+    aspect-ratio: 1;
+}
+.arrowRight{
+    border-radius: 50% !important;
+    aspect-ratio: 1;
 }
