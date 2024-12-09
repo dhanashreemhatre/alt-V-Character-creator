@@ -213,14 +213,20 @@ Vue.component('tab-sex', {
                         Eye Color
                     </div>
                     <div class="value">
-                        {{ data.eyes }} | 30
+                         {{ eyeColors[data.eyes] }} | {{ data.eyes }}
                     </div>
                 </div>
                 <div class="controls">
-                    <button class="arrowLeft" @click="decrementParameter('eyes', 0, 30, 1)">&#8249;</button>
-                    <span> {{ data.eyes }} </span>
-                    <button class="arrowRight" @click="incrementParameter('eyes', 0, 30, 1)">&#8250;</button>
-                </div>
+        <button class="arrowLeft" @click="decrementParameter('eyes', 0, eyeColors.length - 1, 1)">&#8249;</button>
+        <span>
+          <div
+            class="color-preview"
+             :style="{ backgroundColor: eyeColors[data.eyes] }"
+          ></div>
+          {{ eyeColors[data.eyes] }}
+        </span>
+        <button class="arrowRight" @click="incrementParameter('eyes', 0, eyeColors.length - 1, 1)">&#8250;</button>
+      </div>
             </div>
         </div>
     `

@@ -35,3 +35,10 @@
     border-radius: 50% !important;
     aspect-ratio: 1;
 }
+
+.color-preview{
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid white;
+    border-radius: 50%;
+}
