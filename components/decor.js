@@ -12,7 +12,11 @@ Vue.component('tab-decor', {
         },
         getOverlayColorCount() {
             return overlayColors.length - 1;
-        }
+        },
+        setColor(index, parameter, colorIndex) {
+            this.data.colorOverlays[index][parameter] = colorIndex;
+            this.$root.$emit('updateCharacter');
+        },
     },
     template: `
         <div class="options">
@@ -48,9 +52,18 @@ Vue.component('tab-decor', {
                     <div class="value">
                         {{ data.colorOverlays[i].color1 }} | {{ getOverlayColorCount() }}
                     </div>
+                    
                 </div>
-                <div class="inputHolder">
-                    <input type="range" :min="0" :max="getOverlayColorCount()" v-model.number="colorOverlays[i].color1" :step="1" @input="e => handleChange(e, 'color1', i)" />
+        
+                <div class="colorSwatches">
+                    <div
+                        v-for="(color, index) in overlayColors"
+                        :key="index"
+                        :style="{ backgroundColor: color.toLowerCase() }"
+                        class="colorCircle"
+                        @click="setColor(i, 'color1', index)"
+                        :class="{ selected: data.colorOverlays[i].color1 === index }"
+                    ></div>
                 </div>
 
                 <template v-if="colorOverlays[i].color2 !== undefined">
@@ -62,8 +75,16 @@ Vue.component('tab-decor', {
                             {{ data.colorOverlays[i].color2 }} | {{ getOverlayColorCount() }}
                         </div>
                     </div>
-                    <div class="inputHolder">
-                        <input type="range" :min="0" :max="getOverlayColorCount()" v-model.number="colorOverlays[i].color2" :step="1" @input="e => handleChange(e, 'color2', i)" />
+                  
+                    <div class="colorSwatches">
+                        <div
+                            v-for="(color, index) in overlayColors"
+                            :key="index"
+                            :style="{ backgroundColor: color.toLowerCase() }"
+                            class="colorCircle"
+                            @click="setColor(i, 'color2', index)"
+                            :class="{ selected: data.colorOverlays[i].color2 === index }"
+                        ></div>
                     </div>
                 </template>
             </div>

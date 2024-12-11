@@ -51,14 +51,16 @@
     width: 50px;
     height: 50px;
     position: relative;
+    rotate: 35deg;
   }
   
   /* Outer eye (sclera - white part) */
   .eye {
     background-color: #ffffff;
-    border: 2px solid #000;
-    border-radius: 50%;
-    width: 40px;
+    border-left: 4px solid #edc1f1;
+    border-top: 4px solid #edc1f1;
+    border-radius: 50% 0 50% 0;
+    width: 80px;
     height: 40px;
     display: flex;
     justify-content: center;
@@ -68,8 +70,8 @@
   
   /* Iris (colored part) */
   .iris {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     display: flex;
     justify-content: center;

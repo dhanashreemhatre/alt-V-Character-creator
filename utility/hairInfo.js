@@ -256,71 +256,72 @@ const facialHair = [
 ];
 
 const overlayColors = [
-    'Red',
-    'Pink',
-    'Light Pink',
-    'Lighter Pink',
-    'Lightest Pink',
-    'Light Maroon',
-    'Maroon',
-    'Light Brown',
-    'Lighter Brown',
-    'Lightest Brown',
-    'White Pink',
-    'Beige',
-    'Brown Red',
-    'Orange',
-    'Orange Pink',
-    'Lightest Pink',
-    'Lighter Pink',
-    'Pink',
-    'Vibrant Pink',
-    'Dark Pink',
-    'Darker Pink',
-    'Darkest Pink',
-    'Red',
-    'Lighter Red',
-    'Vibrant Red',
-    'Red Pink',
-    'Purple',
-    'Light Purple',
-    'Dark Purple',
-    'Darker Purple',
-    'Darkest Purple',
-    'Vibrant Purple',
-    'Black Purple',
-    'Blue',
-    'Light Blue',
-    'Lighter Blue',
-    'Lightest Blue',
-    'Cyan',
-    'Sea Green',
-    'Deep Sea Green',
-    'Green',
-    'Dark Green',
-    'Light Green',
-    'Yellow Green',
-    'Dark Yellow',
-    'Yellow',
-    'Yellow Orange',
-    'Dark Yellow Orange',
-    'Vigrant Orange',
-    'Dark Orange',
-    'Blonde',
-    'Blonde White',
-    'White',
-    'Gray',
-    'Dark Gray',
-    'Darkest Gray',
-    'Black',
-    'Light Blue',
-    'Dark Blue',
-    'Darkest Blue',
-    'Light Brown',
-    'Brown',
-    'Dark Brown',
-    'Darker Brown'
+    '#FF0000', // Red
+    '#FFC0CB', // Pink
+    '#FFB6C1', // Light Pink
+    '#FFCCCC', // Lighter Pink
+    '#FFE4E1', // Lightest Pink
+    '#B03060', // Light Maroon
+    '#800000', // Maroon
+    '#D2B48C', // Light Brown
+    '#A0522D', // Lighter Brown
+    '#8B4513', // Lightest Brown
+    '#FFF5F5', // White Pink
+    '#F5F5DC', // Beige
+    '#8B0000', // Brown Red
+    '#FFA500', // Orange
+    '#FF9966', // Orange Pink
+    '#FFE4E1', // Lightest Pink
+    '#FFCCCC', // Lighter Pink
+    '#FFC0CB', // Pink
+    '#FF69B4', // Vibrant Pink
+    '#FF1493', // Dark Pink
+    '#C71585', // Darker Pink
+    '#8B0000', // Darkest Pink
+    '#FF0000', // Red
+    '#FF6347', // Lighter Red
+    '#FF4500', // Vibrant Red
+    '#FF7F7F', // Red Pink
+    '#800080', // Purple
+    '#9370DB', // Light Purple
+    '#6A5ACD', // Dark Purple
+    '#4B0082', // Darker Purple
+    '#301934', // Darkest Purple
+    '#9400D3', // Vibrant Purple
+    '#660066', // Black Purple
+    '#0000FF', // Blue
+    '#ADD8E6', // Light Blue
+    '#87CEEB', // Lighter Blue
+    '#E0FFFF', // Lightest Blue
+    '#00FFFF', // Cyan
+    '#2E8B57', // Sea Green
+    '#20B2AA', // Deep Sea Green
+    '#008000', // Green
+    '#006400', // Dark Green
+    '#90EE90', // Light Green
+    '#9ACD32', // Yellow Green
+    '#FFD700', // Dark Yellow
+    '#FFFF00', // Yellow
+    '#FFCC00', // Yellow Orange
+    '#FFA500', // Dark Yellow Orange
+    '#FF8C00', // Vibrant Orange
+    '#FF4500', // Dark Orange
+    '#FAF0BE', // Blonde
+    '#F5F5F5', // Blonde White
+    '#FFFFFF', // White
+    '#808080', // Gray
+    '#A9A9A9', // Dark Gray
+    '#2F4F4F', // Darkest Gray
+    '#000000', // Black
+    '#ADD8E6', // Light Blue
+    '#00008B', // Dark Blue
+    '#000033', // Darkest Blue
+    '#D2B48C', // Light Brown
+    '#A52A2A', // Brown
+    '#8B4513', // Dark Brown
+    '#5C4033'  // Darker Brown
 ];
+
 
 const eyebrowNames = [
     'Balanced',
