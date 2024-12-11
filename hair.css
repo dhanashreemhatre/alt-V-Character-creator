@@ -7,3 +7,27 @@
     margin: 0 5px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); /* Optional shadow */
 }
+
+
+.colorSwatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.colorCircle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border 0.2s ease-in-out;
+}
+
+.colorCircle:hover {
+    border-color: #ccc;
+}
+
+.colorCircle.selected {
+    border-color: #fff;
+}
