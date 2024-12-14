@@ -78,10 +78,10 @@ Vue.component('tab-sex', {
         
             if (id >= 0 && id < namesArray.length) {
                 console.log(`ID: ${namesArray[id]}`);
-                return `${basePath}${genderPath}${namesArray[id].toLowerCase()}.jpeg`;
+                return `${basePath}${genderPath}${namesArray[id].toLowerCase()}.png`;
             } else {
                 console.error(`Invalid ID: ${id}`);
-                return `${basePath}${genderPath}default.jpeg`; // Fallback for invalid IDs
+                return `${basePath}${genderPath}default.png`; // Fallback for invalid IDs
             }
         }
         
@@ -157,13 +157,13 @@ Vue.component('tab-sex', {
                         Mother Face
                     </div>
                     <div class="value">
-                        {{ data.faceMother }} | 22
+                        {{ data.faceMother }} | 21
                     </div>
                 </div>
                 <div class="controls">
-                    <button class="arrowLeft" @click="decrementParameter('faceMother', 0, 22, 1)">&#8249;</button>
+                    <button class="arrowLeft" @click="decrementParameter('faceMother', 0, 21, 1)">&#8249;</button>
                     <img :src="getImage(0, data.faceMother)" :alt="faceNames[data.faceMother]" height="78" />
-                    <button class="arrowRight" @click="incrementParameter('faceMother', 0, 22, 1)">&#8250;</button>
+                    <button class="arrowRight" @click="incrementParameter('faceMother', 0, 21, 1)">&#8250;</button>
                 </div>
             </div>
             <div class="option">
@@ -172,13 +172,13 @@ Vue.component('tab-sex', {
                         Mother Skin
                     </div>
                     <div class="value">
-                        {{ data.skinMother }} | 22
+                        {{ data.skinMother }} | 21
                     </div>
                 </div>
                 <div class="controls">
-                    <button class="arrowLeft" @click="decrementParameter('skinMother', 0, 22, 1)">&#8249;</button>
+                    <button class="arrowLeft" @click="decrementParameter('skinMother', 0, 21, 1)">&#8249;</button>
                    <img :src="getImage(0, data.skinMother)" :alt="faceNames[data.skinMother]" height="78" />
-                    <button class="arrowRight" @click="incrementParameter('skinMother', 0, 22, 1)">&#8250;</button>
+                    <button class="arrowRight" @click="incrementParameter('skinMother', 0, 21, 1)">&#8250;</button>
                 </div>
             </div>
             <div class="option">

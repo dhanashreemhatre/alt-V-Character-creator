@@ -180,7 +180,10 @@ Vue.component('tab-hair', {
                     </div>
                     <div class="controls">
                         <button class="arrowLeft" @click="decrementParameter('facialHairColor1', 0, getColorCount(), 1)">&#8249;</button>
-                        <span>{{ hairColors[data.facialHairColor1] }}</span>
+                        <span> <div 
+                            class="color-circle" 
+                            :style="{ backgroundColor: hairColors[data.facialHairColor1] }"
+                            title="Hair Color"></div></span>
                         <button class="arrowRight" @click="incrementParameter('facialHairColor1', 0, getColorCount(), 1)">&#8250;</button>
                     </div>
                 </div>
