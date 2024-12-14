@@ -11,10 +11,10 @@ Vue.component('tab-sex', {
         setParameter(parameter, value) {
             if (parameter === 'sex') {
                 if (value === 0) {
-                    this.data.faceFather = 1;
-                    this.data.faceMother = 23;
-                    this.data.skinFather = 1;
-                    this.data.skinMother = 23;
+                    this.data.faceFather = 0;
+                    this.data.faceMother = 0;
+                    this.data.skinFather = 0;
+                    this.data.skinMother = 0;
                     this.data.skinMix = 0.5;
                     this.data.faceMix = 0.5;
                     this.data.facialHair = 29;
@@ -22,9 +22,9 @@ Vue.component('tab-sex', {
                     this.data.eyebrows = 0;
                 } else {
                     this.data.faceFather = 0;
-                    this.data.faceMother = 25;
+                    this.data.faceMother = 0;
                     this.data.skinFather = 0;
-                    this.data.skinMother = 25;
+                    this.data.skinMother = 0;
                     this.data.skinMix = 0.5;
                     this.data.faceMix = 0.5;
                     this.data.facialHair = 29;
