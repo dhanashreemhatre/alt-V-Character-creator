@@ -1,6 +1,3 @@
-Vue.config.devtools = true;
-Vue.prototype.window = window;
-
 const app = new Vue({
     el: '#app',
     data() {
@@ -8,7 +5,7 @@ const app = new Vue({
             show: false,
             selection: 0,
             data: {
-                sex: 0,
+                sex: 0, // 0 for female, 1 for male
                 faceFather: 0,
                 faceMother: 0,
                 skinFather: 0,
@@ -19,7 +16,10 @@ const app = new Vue({
                 hair: 11,
                 hairColor1: 5,
                 hairColor2: 2,
-                hairOverlay: '',
+                hairOverlay: {
+                    "collection": "multiplayer_overlays",
+                    "overlay": "NG_F_Hair_011"
+                },
                 facialHair: 29,
                 facialHairColor1: 62,
                 facialHairOpacity: 0,
@@ -35,33 +35,32 @@ const app = new Vue({
     },
     computed: {
         isInactiveNext() {
-            if (this.selection >= this.navOptions.length - 1) {
-                return { inactive: true };
-            }
-
-            return { inactive: false };
+            return { inactive: this.selection >= this.navOptions.length - 1 };
         },
         isInactiveBack() {
-            if (this.selection <= 0) {
-                return { inactive: true };
-            }
-
-            return { inactive: false };
+            return { inactive: this.selection <= 0 };
         },
-        getTabComponent: function() {
+        getTabComponent() {
             return `tab-${this.navOptions[this.selection].toLowerCase()}`;
+        }
+    },
+    watch: {
+        'data.sex': function (newValue) {
+            // Update hair overlay dynamically when sex changes
+            this.updateHairOverlay();
+        },
+        'data.hair': function () {
+            // Update hair overlay dynamically when hair changes
+            this.updateHairOverlay();
         }
     },
     methods: {
         setReady() {
-            if (this.show) {
-                return;
-            }
-
-            this.show = true;
-
-            if ('alt' in window) {
-                alt.emit('character:ReadyDone');
+            if (!this.show) {
+                this.show = true;
+                if ('alt' in window) {
+                    alt.emit('character:ReadyDone');
+                }
             }
         },
         setData(oldData) {
@@ -70,39 +69,39 @@ const app = new Vue({
                 return;
             }
 
-            this.data = oldData;
+            this.data = { ...this.data, ...oldData };
             this.updateCharacter();
         },
         goNext() {
-            if (this.selection >= this.navOptions.length - 1) {
-                return;
+            if (this.selection < this.navOptions.length - 1) {
+                this.selection += 1;
             }
-
-            this.selection += 1;
         },
         goBack() {
-            if (this.selection <= 0) {
-                return;
+            if (this.selection > 0) {
+                this.selection -= 1;
             }
-
-            this.selection -= 1;
         },
         updateCharacter() {
-            const isFemale = this.data.sex === 0;
-            this.data.hairOverlay = isFemale ? femaleHairOverlays[this.data.hair] : maleHairOverlays[this.data.hair];
+            this.updateHairOverlay();
 
-            if (isFemale) {
+            if (this.data.sex === 0) {
                 this.data.facialHair = 30;
                 this.data.facialHairOpacity = 0;
             }
 
-            // Update Floats
             this.data.skinMix = parseFloat(this.data.skinMix);
             this.data.faceMix = parseFloat(this.data.faceMix);
 
             if ('alt' in window) {
                 alt.emit('character:Sync', this.data);
             }
+        },
+        updateHairOverlay() {
+            const isFemale = this.data.sex === 0;
+            this.data.hairOverlay = isFemale
+                ? femaleHairOverlays[this.data.hair] || ''
+                : maleHairOverlays[this.data.hair] || '';
         },
         resetSelection() {
             this.selection = 0;
